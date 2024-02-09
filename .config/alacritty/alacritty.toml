@@ -44,7 +44,7 @@ startup_mode = "Maximized"
 decorations = "Transparent"
 padding = { x = 8, y = 30 }
 dynamic_padding = true
-opacity = 0.9
+# opacity = 0.9
 
 [font]
 normal = { family = "MonaspiceAr Nerd Font", style = "Regular" }
