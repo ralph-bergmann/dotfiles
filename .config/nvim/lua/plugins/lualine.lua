@@ -7,10 +7,9 @@ return {
 				theme = "tokyonight",
 				component_separators = "|",
 				section_separators = { left = "", right = "" },
-				-- disabled_filetypes = {
-				--    "edgy", -- closed edgy panes
-				--    "Outline", -- outline pane
-				-- },
+				disabled_filetypes = {
+					"neo-tree",
+				},
 			},
 			sections = {
 				lualine_a = {
@@ -66,7 +65,7 @@ return {
 				lualine_y = { "branch" },
 				lualine_z = { "mode" },
 			},
-			extensions = { "neo-tree", "symbols-outline" },
+			-- extensions = { "neo-tree", "symbols-outline" },
 		})
 	end,
 }
