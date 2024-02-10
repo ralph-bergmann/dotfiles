@@ -2,7 +2,7 @@
 
 1. `mkdir $HOME/.dotfiles`
 2. `echo "alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc`
-3. `git clone --bare git@github.com:ralph-bergmann/dotfiles.git .dotfiles`
+3. `git clone --bare git@github.com:ralph-bergmann/dotfiles.git $HOME/.dotfiles`
 4. `config checkout`
 5. `config config --local status.showUntrackedFiles no`
 6. `brew install nvim bat eza`
