@@ -112,7 +112,7 @@ export LANG=en_US.UTF-8
 alias ls='eza -l -a -h -T -L=2'
 alias cat='bat'
 alias back='cd $OLDPWD'
-alias config='/usr/bin/git --git-dir=/Users/ralphbergmann/.dotfiles/ --work-tree=/Users/ralphbergmann'
+alias dotfiles='/usr/bin/git --git-dir=/Users/ralphbergmann/.dotfiles/ --work-tree=/Users/ralphbergmann'
 
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32;49'
