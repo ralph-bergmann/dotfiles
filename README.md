@@ -1,4 +1,4 @@
-# Config Files
+# Dotfiles
 
 1. `mkdir $HOME/.dotfiles`
 2. `echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc`
