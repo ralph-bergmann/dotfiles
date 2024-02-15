@@ -137,3 +137,7 @@ export PATH=$ANDROID_PLATFORM_TOOLS:$FLUTTER_ROOT/bin:$CARGO_HOME/bin:~/.pub-cac
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+eval "$(zoxide init zsh --cmd cd)"
+
