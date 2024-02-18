@@ -113,7 +113,8 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls='eza -l -a -h -T -L=2'
+alias ls='eza -l -a -h'
+alias tree='eza -l -a -h -T'
 alias cat='bat'
 alias back='cd $OLDPWD'
 alias dotfiles='/usr/bin/git --git-dir=/Users/ralphbergmann/.dotfiles/ --work-tree=/Users/ralphbergmann'
