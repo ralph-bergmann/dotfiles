@@ -1,3 +1,16 @@
+local function get_short_cwd()
+   return vim.fn.fnamemodify(vim.fn.getcwd(), ':~')
+end
+
+
+local neotree_extension = {
+   sections = {
+      lualine_a = { get_short_cwd },
+      lualine_y = { "branch" },
+   },
+   filetypes = { 'neo-tree' },
+}
+
 return {
    "nvim-lualine/lualine.nvim",
    config = function()
@@ -7,9 +20,10 @@ return {
             theme = "tokyonight",
             component_separators = "|",
             section_separators = { left = "", right = "" },
-            disabled_filetypes = {
-               "neo-tree",
-            },
+            -- disabled_filetypes = {
+            --    "neo-tree",
+            -- },
+            globalstatus = true,
          },
          sections = {
             lualine_a = {
@@ -26,7 +40,7 @@ return {
                   },
                },
             },
-            lualine_b = { "location" },
+            lualine_b = { 'diagnostics', "location" },
             lualine_c = {
                {
                   "navic",
@@ -34,9 +48,9 @@ return {
                   navic_opts = nil,
                },
             },
-            lualine_x = { "diff", "diagnostics" },
+            lualine_x = { "diff" },
             lualine_y = { "branch" },
-            lualine_z = { "mode" },
+            lualine_z = {},
          },
          inactive_sections = {
             lualine_a = {
@@ -53,7 +67,7 @@ return {
                   },
                },
             },
-            lualine_b = { "location" },
+            lualine_b = { 'diagnostics', "location" },
             lualine_c = {
                {
                   "navic",
@@ -61,11 +75,11 @@ return {
                   navic_opts = nil,
                },
             },
-            lualine_x = { "diff", "diagnostics" },
+            lualine_x = { "diff" },
             lualine_y = { "branch" },
-            lualine_z = { "mode" },
+            lualine_z = {},
          },
-         -- extensions = { "neo-tree", "symbols-outline" },
+         extensions = { neotree_extension, "symbols-outline" },
       })
    end,
 }

@@ -2,7 +2,8 @@ return {
    { "williamboman/mason.nvim" },
    { "williamboman/mason-lspconfig.nvim" },
    {
-      "SmiteshP/nvim-navic", -- Simple winbar/statusline plugin that shows your current code context
+      -- Simple winbar/statusline plugin that shows your current code context
+      "SmiteshP/nvim-navic",
       dependencies = {
          "neovim/nvim-lspconfig",
       },
@@ -38,11 +39,19 @@ return {
       },
    },
    {
+      -- A simple popup display that provides breadcrumbs feature using LSP server
       "SmiteshP/nvim-navbuddy",
       dependencies = {
          "SmiteshP/nvim-navic",
          "MunifTanjim/nui.nvim",
       },
+   },
+   {
+      -- A small Neovim plugin for previewing definitions using floating windows.
+      'rmagatti/goto-preview',
+      config = function()
+         require('goto-preview').setup {}
+      end
    },
    {
       "VonHeikemen/lsp-zero.nvim",
@@ -83,10 +92,18 @@ return {
    { "hrsh7th/cmp-path" },      -- nvim-cmp source for path
    { "hrsh7th/cmp-cmdline" },   -- nvim-cmp source for cmdline
    {
-      "hrsh7th/nvim-cmp",       -- A completion plugin for neovim coded in Lua.
+      -- A completion plugin for neovim coded in Lua.
+      "hrsh7th/nvim-cmp",
       config = function()
          local cmp = require("cmp")
-         local cmp_action = require("lsp-zero").cmp_action()
+         local lsp_zero = require('lsp-zero')
+
+         lsp_zero.set_sign_icons({
+            error = '󰅚 ', -- x000f015a
+            warn = '󰀪 ', -- x000f002a
+            info = '󰋽 ', -- x000f02fd
+            hint = '󰌶 ', -- x000f0336
+         })
 
          cmp.setup({
             mapping = cmp.mapping.preset.insert({

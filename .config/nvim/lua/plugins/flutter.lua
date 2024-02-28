@@ -6,11 +6,13 @@ return {
       "stevearc/dressing.nvim",
    },
    config = function()
+      local lsp_zero = require("lsp-zero")
       require("flutter-tools").setup({
          widget_guides = {
             enabled = true,
          },
          lsp = {
+            capabilities = lsp_zero.get_capabilities(),
             color = {
                enabled = true,
                background = true,
