@@ -3,7 +3,6 @@ format = """
 $directory\
 [](fg:color_blue bg:color_blue2)\
 $git_branch\
-$git_status\
 [](color_blue2)\
 $fill\
 [](color_blue2)\
@@ -47,14 +46,16 @@ symbol = ""
 style = "bg:color_blue2"
 format = '[[ $symbol $branch ](fg:color_blue bg:color_blue2)]($style)'
 
-[git_status]
-style = "bg:color_blue2"
-format = '[[($all_status$ahead_behind )](fg:color_blue bg:color_blue2)]($style)'
-
+# [git_status]
+# style = "bg:color_blue2"
+# format = '[[($ahead_behind$modified)](fg:color_blue bg:color_blue2)]($style)'
+# ahead = '⇡${count} '
+# behind = '⇣${count} '
+# modified = '!${count} '
 
 [time]
 disabled = false
-time_format = "%T" # Hour:Minute Format
+time_format = "%T"
 style = "bg:color_blue2"
 format = '[[ $time ](fg:color_blue bg:color_blue2)]($style)'
 
