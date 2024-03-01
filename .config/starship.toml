@@ -1,9 +1,8 @@
 
 format = """
 $directory\
-[](fg:color_blue bg:color_blue2)\
-$git_branch\
-[](color_blue2)\
+${custom.git_status_clean}\
+${custom.git_status_dirty}\
 $fill\
 [](color_blue2)\
 $time\
@@ -41,17 +40,19 @@ format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
-[git_branch]
-symbol = ""
+[custom.git_status_clean]
+when = 'test -z "$(git status --porcelain)"'
+command = 'git branch --show-current'
+symbol = ''
 style = "bg:color_blue2"
-format = '[[ $symbol $branch ](fg:color_blue bg:color_blue2)]($style)'
+format = '[](fg:color_blue bg:color_blue2)[ $symbol $output ](fg:color_blue bg:color_blue2)[](color_blue2)'
 
-# [git_status]
-# style = "bg:color_blue2"
-# format = '[[($ahead_behind$modified)](fg:color_blue bg:color_blue2)]($style)'
-# ahead = '⇡${count} '
-# behind = '⇣${count} '
-# modified = '!${count} '
+[custom.git_status_dirty]
+when = 'test -n "$(git status --porcelain)"'
+command = 'git branch --show-current'
+symbol = ''
+style = "bg:color_yellow"
+format = '[](fg:color_blue bg:color_yellow)[ $symbol $output ](fg:color_black bg:color_yellow)[](color_yellow)'
 
 [time]
 disabled = false
