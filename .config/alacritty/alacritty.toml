@@ -52,7 +52,7 @@ dynamic_padding = true
 # opacity = 0.9
 
 [font]
-normal = { family = "MonaspiceAr Nerd Font", style = "Regular" }
+normal = { family = "MonaspiceAr Nerd Font", style = "Light" }
 bold = { style = "Bold" }
 italic = { style = "Italic" }
 bold_italic = {  style = "BoldItalic" }
