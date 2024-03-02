@@ -5,7 +5,7 @@
 3. `git clone --bare git@github.com:ralph-bergmann/dotfiles.git $HOME/.dotfiles`
 4. `dotfiles checkout`
 5. `dotfiles config --local status.showUntrackedFiles no`
-6. `brew install nvim bat eza ripgrep zoxide fzf tmux starship`
+6. `brew install nvim bat eza ripgrep zoxide fzf tmux starship difftastic`
 7. `brew install --cask alacritty`
 
 If `fzf` completion isn't working run `$(brew --prefix)/opt/fzf/install`.

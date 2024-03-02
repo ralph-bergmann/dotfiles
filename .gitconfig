@@ -1,0 +1,39 @@
+[user]
+   name = Ralph Bergmann
+   email = bergmann@karlmax-berlin.com
+   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFVJ5kH0MQntitEC5BOBL29h8GPmItJpfvrBrazvZrfT
+
+[gpg]
+   format = ssh
+
+[gpg "ssh"]
+   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+   gpgsign = true
+	template = /Users/ralphbergmann/.stCommitMsg
+
+; [difftool "sourcetree"]
+; 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+; 	path = 
+; [mergetool "sourcetree"]
+; 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+; 	trustExitCode = true
+
+[core]
+   excludesfile = /Users/ralphbergmann/.gitignore_global
+
+[diff]
+   tool = difftastic
+   external = difft
+   colorMoved = default
+
+[difftool]
+   prompt = false
+
+[difftool "difftastic"]
+   cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+   difftool = true
+
