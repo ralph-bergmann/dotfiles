@@ -14,7 +14,6 @@ local neotree_extension = {
 return {
    "nvim-lualine/lualine.nvim",
    config = function()
-      local navic = require("nvim-navic")
       require("lualine").setup({
          options = {
             theme = "tokyonight",
