@@ -10,7 +10,7 @@
 
 If `fzf` completion isn't working run `$(brew --prefix)/opt/fzf/install`.
 
-Install `tmux` `tpm`: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+Install `tmux` `tpm`: `git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm`
 In a `tmux` session press `<leader> I` to install all plugins.
 
 see [Dotfiles: Best way to store in a bare git repository](https://www.atlassian.com/git/tutorials/dotfiles)
