@@ -4,11 +4,15 @@ export LANG=en_US.UTF-8
 alias ls='eza -l -a -h'
 alias tree='eza -l -a -h -T'
 alias cat='bat'
+alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 alias back='cd $OLDPWD'
 alias dotfiles='/usr/bin/git --git-dir=/Users/ralphbergmann/.dotfiles/ --work-tree=/Users/ralphbergmann'
+# alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+# alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32;49'
+export MANPAGER="zsh -c 'col -bx | bat -l man -p'"
 
 export SDK_PATH=$HOME/development/sdks
 export ANDROID_SDK_ROOT=$SDK_PATH/android-sdk
