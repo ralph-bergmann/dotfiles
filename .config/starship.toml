@@ -13,6 +13,9 @@ $time\
 # Inserts a blank line between shell prompts
 add_newline = true
 
+# Ignore timeouts
+command_timeout = 1000
+
 palette = 'tokyonight'
 
 # Disable the package module, hiding it from the prompt completely
