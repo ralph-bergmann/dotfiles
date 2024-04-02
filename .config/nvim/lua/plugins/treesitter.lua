@@ -5,7 +5,12 @@ return {
       config = function()
          local config = require("nvim-treesitter.configs")
          config.setup({
-            ensure_installed = { "bash", "lua", "toml" },
+            ensure_installed = {
+               "bash",
+               "dart",
+               "lua",
+               "toml",
+            },
             -- auto_install = true,
             highlight = { enable = true },
             indent = { enable = true, disable = { "dart" } },
