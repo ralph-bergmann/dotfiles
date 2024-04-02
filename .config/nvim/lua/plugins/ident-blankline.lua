@@ -1,5 +1,7 @@
 return {
-   "lukas-reineke/indent-blankline.nvim",
+   "ralph-bergmann/indent-blankline.nvim",
+   branch = "update_dart_scope",
+   -- "lukas-reineke/indent-blankline.nvim",
    main = "ibl",
    opts = {},
    config = function()
