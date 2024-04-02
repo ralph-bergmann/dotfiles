@@ -21,10 +21,13 @@ export FLUTTER_ROOT=$SDK_PATH/flutter
 # export FLUTTER_ROOT=$SDK_PATH/flutter_master
 # export DART_HOME=$FLUTTER_ROOT/bin/cache/dart-sdk
 # export DART_HOME=$SDK_PATH/dart-sdk
-# export JAVA_HOME=`/usr/libexec/java_home`
+export JAVA_HOME=`/usr/libexec/java_home`
 export RUSTUP_HOME=$SDK_PATH/rustup
 export CARGO_HOME=$SDK_PATH/cargo
 export PATH=$ANDROID_PLATFORM_TOOLS:$FLUTTER_ROOT/bin:$CARGO_HOME/bin:~/.pub-cache/bin:/usr/local/sbin:$PATH
+
+# turn Difftastic syntax highlighting off
+export DFT_SYNTAX_HIGHLIGHT=off
 
 # load fzf config(autocomplete, etc)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
