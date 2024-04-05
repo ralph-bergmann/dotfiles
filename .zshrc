@@ -29,6 +29,12 @@ export PATH=$ANDROID_PLATFORM_TOOLS:$FLUTTER_ROOT/bin:$CARGO_HOME/bin:~/.pub-cac
 # turn Difftastic syntax highlighting off
 export DFT_SYNTAX_HIGHLIGHT=off
 
+# case insensitive path completion
+# see https://superuser.com/a/1092328
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+
 # load fzf config(autocomplete, etc)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
