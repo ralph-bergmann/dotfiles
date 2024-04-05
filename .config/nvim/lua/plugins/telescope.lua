@@ -26,6 +26,7 @@ return {
             f = {
                name = "Find",
                f = { builtin.find_files, "Find File" },
+               o = { '<CMD>Oil --float<CR>', "Open parent directory in Oil" },
                t = {
                   name = "Text",
                   l = { builtin.live_grep, "Find Text" },

@@ -19,9 +19,9 @@ return {
             theme = "tokyonight",
             component_separators = "|",
             section_separators = { left = "", right = "" },
-            -- disabled_filetypes = {
-            --    "neo-tree",
-            -- },
+            disabled_filetypes = {
+               "oil",
+            },
             globalstatus = true,
          },
          sections = {
