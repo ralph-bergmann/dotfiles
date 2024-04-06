@@ -54,6 +54,26 @@ return {
       end
    },
    {
+      "aznhe21/actions-preview.nvim",
+      config = function()
+         require("actions-preview").setup {
+            telescope = {
+               sorting_strategy = "ascending",
+               layout_strategy = "vertical",
+               layout_config = {
+                  width = 0.8,
+                  height = 0.9,
+                  prompt_position = "top",
+                  preview_cutoff = 20,
+                  preview_height = function(_, _, max_lines)
+                     return max_lines - 15
+                  end,
+               },
+            },
+         }
+      end,
+   },
+   {
       "VonHeikemen/lsp-zero.nvim",
       branch = "v3.x",
       config = function()
@@ -66,7 +86,11 @@ return {
             lsp_zero.default_keymaps({
                buffer = bufnr,
                preserve_mappings = false,
+               exclude = { '<F4>' },
             })
+            vim.keymap.set({ "v", "n" }, "<F4>", require("actions-preview").code_actions)
+
+
 
             -- null-ls and copilot are not supported by nvim-navic
             if client.name ~= "null-ls" and client.name ~= "copilot" then
