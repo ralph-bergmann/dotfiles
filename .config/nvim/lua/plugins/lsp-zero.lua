@@ -55,10 +55,7 @@ return {
                vim.keymap.set("n", "gl", '<C-w>L', { buffer = buf })
             end,
             references = {
-               telescope = {
-                  sorting_strategy = "ascending",
-                  layout_strategy = "vertical",
-               },
+               telescope = { layout_strategy = "horizontal" },
             }
          })
       end
@@ -67,10 +64,7 @@ return {
       "aznhe21/actions-preview.nvim",
       config = function()
          require("actions-preview").setup({
-            telescope = {
-               sorting_strategy = "ascending",
-               layout_strategy = "vertical",
-            },
+            telescope = { layout_strategy = "horizontal" },
          })
       end,
    },
