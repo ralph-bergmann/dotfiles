@@ -51,10 +51,15 @@ return {
       'rmagatti/goto-preview',
       config = function()
          require('goto-preview').setup({
-            post_open_hook = function()
-               local bufnr = vim.api.nvim_get_current_buf()
-               vim.keymap.set("n", "gl", '<C-w>L', { buffer = bufnr })
-            end
+            post_open_hook = function(buf, _)
+               vim.keymap.set("n", "gl", '<C-w>L', { buffer = buf })
+            end,
+            references = {
+               telescope = {
+                  sorting_strategy = "ascending",
+                  layout_strategy = "vertical",
+               },
+            }
          })
       end
    },
@@ -65,15 +70,6 @@ return {
             telescope = {
                sorting_strategy = "ascending",
                layout_strategy = "vertical",
-               layout_config = {
-                  width = 0.8,
-                  height = 0.9,
-                  prompt_position = "top",
-                  preview_cutoff = 20,
-                  preview_height = function(_, _, max_lines)
-                     return max_lines - 15
-                  end,
-               },
             },
          })
       end,
@@ -102,7 +98,7 @@ return {
             vim.keymap.set("n", "gi", goto_preview.goto_preview_implementation, { buffer = bufnr })
             vim.keymap.set("n", "gD", goto_preview.goto_preview_declaration, { buffer = bufnr })
             vim.keymap.set("n", "gr", goto_preview.goto_preview_references, { buffer = bufnr })
-            vim.keymap.set("n", "gc", goto_preview.close_all_win, { buffer = bufnr })
+            -- vim.keymap.set("n", "gc", goto_preview.close_all_win, { buffer = bufnr })
 
             -- null-ls and copilot are not supported by nvim-navic
             if client.name ~= "null-ls" and client.name ~= "copilot" then
