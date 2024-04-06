@@ -50,13 +50,18 @@ return {
       -- A small Neovim plugin for previewing definitions using floating windows.
       'rmagatti/goto-preview',
       config = function()
-         require('goto-preview').setup {}
+         require('goto-preview').setup({
+            post_open_hook = function()
+               local bufnr = vim.api.nvim_get_current_buf()
+               vim.keymap.set("n", "gl", '<C-w>L', { buffer = bufnr })
+            end
+         })
       end
    },
    {
       "aznhe21/actions-preview.nvim",
       config = function()
-         require("actions-preview").setup {
+         require("actions-preview").setup({
             telescope = {
                sorting_strategy = "ascending",
                layout_strategy = "vertical",
@@ -70,7 +75,7 @@ return {
                   end,
                },
             },
-         }
+         })
       end,
    },
    {
@@ -78,6 +83,8 @@ return {
       branch = "v3.x",
       config = function()
          local lsp_zero = require("lsp-zero")
+         local actions_preview = require("actions-preview")
+         local goto_preview = require("goto-preview")
          lsp_zero.extend_lspconfig()
 
          lsp_zero.on_attach(function(client, bufnr)
@@ -86,11 +93,16 @@ return {
             lsp_zero.default_keymaps({
                buffer = bufnr,
                preserve_mappings = false,
-               exclude = { '<F4>' },
+               exclude = { '<F4>', 'gd', 'go', 'gi', 'gD', 'gr' },
             })
-            vim.keymap.set({ "v", "n" }, "<F4>", require("actions-preview").code_actions)
+            vim.keymap.set("n", "<F4>", actions_preview.code_actions, { buffer = bufnr })
 
-
+            vim.keymap.set("n", "gd", goto_preview.goto_preview_definition, { buffer = bufnr })
+            vim.keymap.set("n", "go", goto_preview.goto_preview_type_definition, { buffer = bufnr })
+            vim.keymap.set("n", "gi", goto_preview.goto_preview_implementation, { buffer = bufnr })
+            vim.keymap.set("n", "gD", goto_preview.goto_preview_declaration, { buffer = bufnr })
+            vim.keymap.set("n", "gr", goto_preview.goto_preview_references, { buffer = bufnr })
+            vim.keymap.set("n", "gc", goto_preview.close_all_win, { buffer = bufnr })
 
             -- null-ls and copilot are not supported by nvim-navic
             if client.name ~= "null-ls" and client.name ~= "copilot" then
