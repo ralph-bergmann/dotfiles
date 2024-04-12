@@ -22,7 +22,7 @@ return {
             disabled_filetypes = {
                "oil",
             },
-            globalstatus = true,
+            globalstatus = false,
          },
          sections = {
             lualine_a = {
