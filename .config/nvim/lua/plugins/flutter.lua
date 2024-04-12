@@ -8,9 +8,9 @@ return {
    config = function()
       local lsp_zero = require("lsp-zero")
       require("flutter-tools").setup({
-         widget_guides = {
-            enabled = true,
-         },
+         -- widget_guides = {
+         --    enabled = true,
+         -- },
          lsp = {
             capabilities = lsp_zero.get_capabilities(),
             color = {
@@ -19,7 +19,8 @@ return {
                virtual_text = false,
             },
             settings = {
-               lineLength = 120,
+               lineLength = 100,
+               renameFilesWithClasses = 'always',
             },
          },
       })
