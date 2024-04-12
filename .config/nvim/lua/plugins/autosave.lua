@@ -13,6 +13,7 @@ return {
             return true
          end
          return false
-      end
+      end,
+      write_all_buffers = true,
    },
 }
