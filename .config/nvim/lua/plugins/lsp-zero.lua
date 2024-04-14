@@ -51,12 +51,8 @@ return {
       'rmagatti/goto-preview',
       config = function()
          require('goto-preview').setup({
-            post_open_hook = function(buf, _)
-               vim.keymap.set("n", "gl", '<C-w>L', { buffer = buf })
-            end,
-            references = {
-               telescope = { layout_strategy = "horizontal" },
-            }
+            width = 120,
+            height = 30,
          })
       end
    },
@@ -83,16 +79,13 @@ return {
             lsp_zero.default_keymaps({
                buffer = bufnr,
                preserve_mappings = false,
-               exclude = { '<F4>', 'gd', 'go', 'gi', 'gD', 'gr' },
+               exclude = { '<F4>', 'gD', 'gr', 'gi', },
             })
-            vim.keymap.set("n", "<F4>", actions_preview.code_actions, { buffer = bufnr })
-
-            vim.keymap.set("n", "gd", goto_preview.goto_preview_definition, { buffer = bufnr })
-            vim.keymap.set("n", "go", goto_preview.goto_preview_type_definition, { buffer = bufnr })
-            vim.keymap.set("n", "gi", goto_preview.goto_preview_implementation, { buffer = bufnr })
-            vim.keymap.set("n", "gD", goto_preview.goto_preview_declaration, { buffer = bufnr })
-            vim.keymap.set("n", "gr", goto_preview.goto_preview_references, { buffer = bufnr })
-            -- vim.keymap.set("n", "gc", goto_preview.close_all_win, { buffer = bufnr })
+            vim.keymap.set("n", "<F4>", actions_preview.code_actions, { buffer = bufnr, desc = "Preview Code Action" })
+            vim.keymap.set("n", "gp", goto_preview.goto_preview_definition, { buffer = bufnr, desc = "Preview Definition" })
+            vim.keymap.set("n", "gc", goto_preview.close_all_win, { buffer = bufnr, desc = "Close Preview" })
+            vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr, desc = "List References" })
+            vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', { buffer = bufnr, desc = "List Implementations" })
 
             -- null-ls and copilot are not supported by nvim-navic
             if client.name ~= "null-ls" and client.name ~= "copilot" then
