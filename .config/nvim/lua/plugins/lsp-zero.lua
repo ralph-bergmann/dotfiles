@@ -92,6 +92,10 @@ return {
                require("nvim-navic").attach(client, bufnr)
                require("nvim-navbuddy").attach(client, bufnr)
             end
+
+            if vim.lsp.inlay_hint then
+               vim.lsp.inlay_hint.enable(bufnr, true)
+            end
          end)
 
          -- to learn how to use mason.nvim with lsp-zero
@@ -99,17 +103,15 @@ return {
          require("mason").setup({})
          require("mason-lspconfig").setup({
             ensure_installed = {},
-            handlers = {
-               lsp_zero.default_setup,
-            },
+            handlers = { lsp_zero.default_setup },
          })
       end,
    },
-   { "neovim/nvim-lspconfig" }, -- Quickstart configs for Nvim LSP
-   { "hrsh7th/cmp-nvim-lsp" },  -- nvim-cmp source for neovim builtin LSP client
-   { "hrsh7th/cmp-buffer" },    -- nvim-cmp source for buffer words
-   { "hrsh7th/cmp-path" },      -- nvim-cmp source for path
-   { "hrsh7th/cmp-cmdline" },   -- nvim-cmp source for cmdline
+   { "neovim/nvim-lspconfig" },   -- Quickstart configs for Nvim LSP
+   { "hrsh7th/cmp-nvim-lsp" },    -- nvim-cmp source for neovim builtin LSP client
+   { "hrsh7th/cmp-buffer" },      -- nvim-cmp source for buffer words
+   { "hrsh7th/cmp-path" },        -- nvim-cmp source for path
+   { "hrsh7th/cmp-cmdline" },     -- nvim-cmp source for cmdline
    {
       -- A completion plugin for neovim coded in Lua.
       "hrsh7th/nvim-cmp",
