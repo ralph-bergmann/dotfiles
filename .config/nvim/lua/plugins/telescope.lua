@@ -6,6 +6,12 @@ return {
       end,
    },
    {
+      "nvim-telescope/telescope-frecency.nvim",
+      config = function()
+         require("telescope").load_extension "frecency"
+      end,
+   },
+   {
       "nvim-telescope/telescope.nvim",
       tag = "0.1.5",
       dependencies = {
@@ -14,9 +20,13 @@ return {
       config = function()
          require("telescope").setup({
             extensions = {
-               ["ui-select"] = {
+               ui_select = {
                   require("telescope.themes").get_dropdown({}),
                },
+               frecency = {
+                  default_workspace = 'CWD',
+                  show_filter_column = false,
+               }
             },
          })
          local wk = require("which-key")
@@ -25,7 +35,8 @@ return {
          wk.register({
             f = {
                name = "Find",
-               f = { builtin.find_files, "Find File" },
+               -- f = { builtin.find_files, "Find File" },
+               f = { '<CMD>Telescope frecency<CR>', "Find File" },
                o = { '<CMD>Oil --float<CR>', "Open parent directory in Oil" },
                t = {
                   name = "Text",
