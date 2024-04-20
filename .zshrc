@@ -24,6 +24,7 @@ export FLUTTER_ROOT=$SDK_PATH/flutter
 export JAVA_HOME=`/usr/libexec/java_home`
 export RUSTUP_HOME=$SDK_PATH/rustup
 export CARGO_HOME=$SDK_PATH/cargo
+export CHROME_EXECUTABLE="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 export PATH=$ANDROID_PLATFORM_TOOLS:$FLUTTER_ROOT/bin:$CARGO_HOME/bin:~/.pub-cache/bin:/usr/local/sbin:$PATH
 
 # turn Difftastic syntax highlighting off
