@@ -12,6 +12,13 @@ return {
       end,
    },
    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make',
+      config = function()
+         require("telescope").load_extension "fzf"
+      end,
+   },
+   {
       "nvim-telescope/telescope.nvim",
       tag = "0.1.5",
       dependencies = {
@@ -26,6 +33,7 @@ return {
                frecency = {
                   default_workspace = 'CWD',
                   show_filter_column = false,
+                  sorter = require("telescope").extensions.fzf.native_fzf_sorter()
                }
             },
          })
@@ -40,8 +48,20 @@ return {
                o = { '<CMD>Oil --float<CR>', "Open parent directory in Oil" },
                t = {
                   name = "Text",
-                  l = { builtin.live_grep, "Find Text" },
-                  c = { builtin.grep_string, "Find Text under Cursor" },
+                  l = { function()
+                     builtin.grep_string({
+                        path_display = { 'smart' },
+                        only_sort_text = true,
+                        word_match = "-w",
+                        search = '',
+                     })
+                  end, "Find Text" },
+                  c = { function()
+                     builtin.grep_string({
+                        path_display = { 'smart' },
+                        only_sort_text = true,
+                     })
+                  end, "Find Text under Cursor" },
                },
             },
          }, { prefix = "<leader>" })

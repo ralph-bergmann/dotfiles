@@ -107,16 +107,17 @@ return {
          })
       end,
    },
-   { "neovim/nvim-lspconfig" },   -- Quickstart configs for Nvim LSP
-   { "hrsh7th/cmp-nvim-lsp" },    -- nvim-cmp source for neovim builtin LSP client
-   { "hrsh7th/cmp-buffer" },      -- nvim-cmp source for buffer words
-   { "hrsh7th/cmp-path" },        -- nvim-cmp source for path
-   { "hrsh7th/cmp-cmdline" },     -- nvim-cmp source for cmdline
+   { "neovim/nvim-lspconfig" }, -- Quickstart configs for Nvim LSP
+   { "hrsh7th/cmp-nvim-lsp" },  -- nvim-cmp source for neovim builtin LSP client
+   { "hrsh7th/cmp-buffer" },    -- nvim-cmp source for buffer words
+   { "hrsh7th/cmp-path" },      -- nvim-cmp source for path
+   { "hrsh7th/cmp-cmdline" },   -- nvim-cmp source for cmdline
    {
       -- A completion plugin for neovim coded in Lua.
       "hrsh7th/nvim-cmp",
       config = function()
          local cmp = require("cmp")
+         local cmp_action = require('lsp-zero').cmp_action()
          local lsp_zero = require('lsp-zero')
 
          lsp_zero.set_sign_icons({
@@ -129,14 +130,17 @@ return {
          cmp.setup({
             mapping = cmp.mapping.preset.insert({
                -- `Enter` key to confirm completion
-               ["<CR>"] = cmp.mapping.confirm({ select = true }),
+               ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 
                -- Ctrl+Space to trigger completion menu
                ["<C-Space>"] = cmp.mapping.complete(),
 
+               -- Closes the completion menu and restore the current line to the state before the current completion was started.
+               ['<C-e>'] = cmp.mapping.abort(),
+
                -- Navigate between snippet placeholder
-               -- ["<C-f>"] = cmp_action.luasnip_jump_forward(),
-               -- ["<C-b>"] = cmp_action.luasnip_jump_backward(),
+               ["<C-l>"] = cmp_action.luasnip_jump_forward(),
+               ["<C-h>"] = cmp_action.luasnip_jump_backward(),
 
                -- Scroll up and down in the completion documentation
                ["<C-j>"] = cmp.mapping.scroll_docs(4),
