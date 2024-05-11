@@ -23,6 +23,9 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.iskeyword:append("-")           -- consider string-string as whole word
 vim.g.mapleader = " "               -- set leader key to space
 
+opt.scrolloff = 5                   -- minimal number of lines above and below the cursor
+
+
 -- Navigate vim panes better
 local keymap = vim.keymap
 -- done in tmux-navigator.lua
