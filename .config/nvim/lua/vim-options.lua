@@ -35,3 +35,7 @@ local keymap = vim.keymap
 -- keymap.set("n", "<c-l>", "<c-w>l", { desc = "move to window right (vim-options.lua)" })
 
 keymap.set("n", "<leader>cs", "<cmd>nohl<CR>", { desc = "clear search highlights" })
+-- keymap.set("n", "J", "<C-d>zz")
+-- keymap.set("n", "K", "<C-u>zz")
+keymap.set("n", "H", "^")
+keymap.set("n", "L", "$")
