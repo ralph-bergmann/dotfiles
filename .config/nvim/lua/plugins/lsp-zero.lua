@@ -173,15 +173,15 @@ return {
       end,
    },
    { "L3MON4D3/LuaSnip" },
-   {
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-      config = function()
-         require("lsp_lines").setup()
-      end,
-
-      -- Disable virtual_text since it's redundant due to lsp_lines.
-      vim.diagnostic.config({
-         virtual_text = false,
-      }),
-   },
+   -- {
+   --    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+   --    config = function()
+   --       require("lsp_lines").setup()
+   --    end,
+   --
+   --    -- Disable virtual_text since it's redundant due to lsp_lines.
+   --    vim.diagnostic.config({
+   --       virtual_text = false,
+   --    }),
+   -- },
 }
