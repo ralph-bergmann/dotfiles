@@ -43,6 +43,8 @@ zstyle ':fzf-tab:*' popup-min-size 100 16
 # Keybindings
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
 
 
 
