@@ -43,9 +43,12 @@ zstyle ':fzf-tab:*' popup-min-size 100 16
 # Keybindings
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word
-
+bindkey "^[[C" forward-word
+bindkey "^[[D" backward-word
+# bindkey "^[[1;3C" forward-word
+# bindkey "^[[1;3D" backward-word
+bindkey '^ ' autosuggest-accept
+bindkey '' autosuggest-execute
 
 
 # History
@@ -60,6 +63,10 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+
+# don't store failed commands in history
+# see https://superuser.com/a/902508
+zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 
 alias ls='eza -l -a -h'
