@@ -1,3 +1,35 @@
+local function get_type_hierarchy(method)
+   vim.lsp.buf_request(0, "textDocument/prepareTypeHierarchy", vim.lsp.util.make_position_params(), function(_, result)
+      if not result then
+         vim.notify_once("Does not support typeHierarchy", vim.log.levels.INFO)
+         return
+      end
+      vim.lsp.buf_request(0, method, { item = result[1] }, function(_, res)
+         if not res or #res == 0 then
+            return
+         end
+
+         if #res == 1 then
+            vim.lsp.util.jump_to_location(res[1], "utf-8", true)
+            return
+         end
+
+         vim.ui.select(res, {
+            format_item = function(item) ---@param item lsp.TypeHierarchyItem
+               local kind = vim.lsp.protocol.SymbolKind[item.kind] or "Unknown"
+               return kind .. ": " .. item.name
+            end,
+            prompt = "Jump to definition",
+         }, function(item) ---@param item lsp.TypeHierarchyItem
+            if item then
+               vim.lsp.util.jump_to_location(item, "utf-8", true)
+            end
+         end)
+      end)
+   end)
+end
+
+
 return {
    { "williamboman/mason.nvim" },
    { "williamboman/mason-lspconfig.nvim" },
@@ -82,10 +114,15 @@ return {
                exclude = { '<F4>', 'gD', 'gr', 'gi', },
             })
             vim.keymap.set("n", "<F4>", actions_preview.code_actions, { buffer = bufnr, desc = "Preview Code Action" })
-            vim.keymap.set("n", "gp", goto_preview.goto_preview_definition, { buffer = bufnr, desc = "Preview Definition" })
+            vim.keymap.set("n", "gp", goto_preview.goto_preview_definition,
+               { buffer = bufnr, desc = "Preview Definition" })
             vim.keymap.set("n", "gc", goto_preview.close_all_win, { buffer = bufnr, desc = "Close Preview" })
             vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr, desc = "List References" })
-            vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', { buffer = bufnr, desc = "List Implementations" })
+            vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>',
+               { buffer = bufnr, desc = "List Implementations" })
+            vim.keymap.set("n", "gt", function()
+               get_type_hierarchy("typeHierarchy/supertypes")
+            end, { buffer = bufnr, desc = "Go to super type" })
 
             -- null-ls and copilot are not supported by nvim-navic
             if client.name ~= "null-ls" and client.name ~= "copilot" then

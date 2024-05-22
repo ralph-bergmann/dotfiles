@@ -47,11 +47,10 @@ bindkey "^[[B" history-beginning-search-forward
 # bindkey "^[[D" backward-word
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
-bindkey '^ ' autosuggest-accept
 
 
 # History
-HISTSIZE=5000
+HISTSIZE=500
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase

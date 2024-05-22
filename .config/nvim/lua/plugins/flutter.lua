@@ -19,7 +19,7 @@ return {
                virtual_text = false,
             },
             settings = {
-               lineLength = 100,
+               lineLength = 80,
                renameFilesWithClasses = 'always',
             },
          },
