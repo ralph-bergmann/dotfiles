@@ -3,13 +3,14 @@ local opt = vim.opt
 opt.number = true                   -- show line numbers
 opt.relativenumber = true           -- show relative line numbers
 opt.cursorline = true               -- highlight the current cursor line
+-- opt.cursorlineopt = "number"        -- makes scrolling a bit faster, maybe
 opt.signcolumn = "yes"              -- always show sign column
 
 opt.termguicolors = true            -- enable true color support
 opt.background = "dark"             -- set background to dark
 
-opt.tabstop = 3                     -- number of spaces a tab counts for
-opt.shiftwidth = 3                  -- number of spaces to use for autoindent
+opt.tabstop = 2                     -- number of spaces a tab counts for
+opt.shiftwidth = 2                  -- number of spaces to use for autoindent
 opt.expandtab = true                -- convert tabs to spaces
 opt.smartindent = true              -- autoindent new lines
 opt.autoindent = true               -- autoindent new lines
@@ -20,10 +21,12 @@ opt.smartcase = true                -- ignore case when searching, unless a capi
 opt.backspace = "indent,eol,start"  -- allow backspace on indent, end of line or insert mode start position
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
-opt.iskeyword:append("-")           -- consider string-string as whole word
-vim.g.mapleader = " "               -- set leader key to space
+-- opt.undofile = true                 -- write undos to file
 
-opt.scrolloff = 5                   -- minimal number of lines above and below the cursor
+opt.iskeyword:append("-") -- consider string-string as whole word
+vim.g.mapleader = " "     -- set leader key to space
+
+opt.scrolloff = 5         -- minimal number of lines above and below the cursor
 
 
 -- Navigate vim panes better
