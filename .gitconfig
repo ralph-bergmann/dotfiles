@@ -1,6 +1,6 @@
 [user]
-   name = Ralph Bergmann
-   email = bergmann@karlmax-berlin.com
+	name = Ralph Bergmann
+	email = ralph@dasralph.de
    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFVJ5kH0MQntitEC5BOBL29h8GPmItJpfvrBrazvZrfT
 
 [gpg]
@@ -21,7 +21,7 @@
 ; 	trustExitCode = true
 
 [core]
-   excludesfile = /Users/ralphbergmann/.gitignore_global
+	excludesfile = /Users/ralphbergmann/.gitignore_global
 
 [diff]
    tool = difftastic
