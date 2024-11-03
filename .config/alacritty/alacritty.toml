@@ -1,4 +1,4 @@
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["-l", "-c", "tmux new-session -A -D -s default"]
 
@@ -70,5 +70,7 @@ normal = { family = "MonaspiceAr Nerd Font", style = "Light" }
 bold = { style = "Bold" }
 italic = { style = "Italic" }
 bold_italic = {  style = "BoldItalic" }
-size = 18.0
+size = 16.0
+
+[terminal]
 
