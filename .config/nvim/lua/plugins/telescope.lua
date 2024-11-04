@@ -40,7 +40,6 @@ return {
       local wk = require("which-key")
       local builtin = require("telescope.builtin")
 
-
       wk.add({
         { "<leader>f",  group = "Find" },
         { "<leader>ff", "<CMD>Telescope frecency<CR>", desc = "Find File" },
