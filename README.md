@@ -6,12 +6,15 @@
 4. `dotfiles checkout`
 5. `dotfiles config --local status.showUntrackedFiles no`
 6. `brew install nvim bat eza ripgrep zoxide fzf tmux starship lazygit difftastic rust-analyzer`
-7. `brew install --cask alacritty`
 
 If `fzf` completion isn't working run `$(brew --prefix)/opt/fzf/install`.
 
 Install `tmux` `tpm`: `git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm`
 In a `tmux` session press `<leader> I` to install all plugins.
+
+Install Ghostty terminal: https://ghostty.org/download
+
+Install Monaspace font: https://github.com/githubnext/monaspace
 
 Rename the original `rust-analyzer` so that the one needed for nvim can be taken from `brew`.
 
