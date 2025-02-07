@@ -102,3 +102,9 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/ralphbergmann/.dart-cli-completion/zsh-config.zsh ]] && . /Users/ralphbergmann/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
