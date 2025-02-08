@@ -141,8 +141,21 @@ return {
             border = "rounded", -- customize the float border
             source = "always",  -- show source in diagnostic float
           },
+          signs = {
+            text = {
+              [vim.diagnostic.severity.ERROR] = '󰅚',
+              [vim.diagnostic.severity.WARN] = '󰀪',
+              [vim.diagnostic.severity.HINT] = '󰌶',
+              [vim.diagnostic.severity.INFO] = '󰋽',
+            },
+            numhl = {
+              [vim.diagnostic.severity.WARN] = "WarningMsg",
+              [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+              [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+              [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+            },
+          },
         })
-        
       end)
 
       -- to learn how to use mason.nvim with lsp-zero
@@ -154,25 +167,17 @@ return {
       })
     end,
   },
-  { "neovim/nvim-lspconfig" },  -- Quickstart configs for Nvim LSP
-  { "hrsh7th/cmp-nvim-lsp" },   -- nvim-cmp source for neovim builtin LSP client
-  { "hrsh7th/cmp-buffer" },     -- nvim-cmp source for buffer words
-  { "hrsh7th/cmp-path" },       -- nvim-cmp source for path
-  { "hrsh7th/cmp-cmdline" },    -- nvim-cmp source for cmdline
+  { "neovim/nvim-lspconfig" }, -- Quickstart configs for Nvim LSP
+  { "hrsh7th/cmp-nvim-lsp" },  -- nvim-cmp source for neovim builtin LSP client
+  { "hrsh7th/cmp-buffer" },    -- nvim-cmp source for buffer words
+  { "hrsh7th/cmp-path" },      -- nvim-cmp source for path
+  { "hrsh7th/cmp-cmdline" },   -- nvim-cmp source for cmdline
   {
     -- A completion plugin for neovim coded in Lua.
     "hrsh7th/nvim-cmp",
     config = function()
       local cmp = require("cmp")
       local cmp_action = require('lsp-zero').cmp_action()
-      local lsp_zero = require('lsp-zero')
-
-      lsp_zero.set_sign_icons({
-        error = '󰅚 ', -- x000f015a
-        warn = '󰀪 ', -- x000f002a
-        info = '󰋽 ', -- x000f02fd
-        hint = '󰌶 ', -- x000f0336
-      })
 
       cmp.setup({
         mapping = cmp.mapping.preset.insert({
