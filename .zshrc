@@ -83,7 +83,7 @@ export MANPAGER="zsh -c 'col -bx | bat -l man -p'"
 export SDK_PATH=$HOME/development/sdks
 export ANDROID_SDK_ROOT=$SDK_PATH/android-sdk
 export ANDROID_PLATFORM_TOOLS=$ANDROID_SDK_ROOT/platform-tools
-export FLUTTER_ROOT=$SDK_PATH/flutter
+# export FLUTTER_ROOT=$SDK_PATH/flutter
 # export FLUTTER_ROOT=$SDK_PATH/flutter_master
 # export DART_HOME=$FLUTTER_ROOT/bin/cache/dart-sdk
 # export DART_HOME=$SDK_PATH/dart-sdk
@@ -91,7 +91,8 @@ export JAVA_HOME=`/usr/libexec/java_home`
 export RUSTUP_HOME=$SDK_PATH/rustup
 export CARGO_HOME=$SDK_PATH/cargo
 export CHROME_EXECUTABLE="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-export PATH=$ANDROID_PLATFORM_TOOLS:$FLUTTER_ROOT/bin:$CARGO_HOME/bin:~/.pub-cache/bin:/usr/local/sbin:$PATH
+# export PATH=$ANDROID_PLATFORM_TOOLS:$FLUTTER_ROOT/bin:$CARGO_HOME/bin:~/.pub-cache/bin:/usr/local/sbin:$PATH
+export PATH=$ANDROID_PLATFORM_TOOLS:$CARGO_HOME/bin:~/.pub-cache/bin:/usr/local/sbin:$PATH
 
 # turn Difftastic syntax highlighting off
 export DFT_SYNTAX_HIGHLIGHT=off
