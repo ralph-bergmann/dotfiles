@@ -17,5 +17,6 @@ require("lazy").setup("plugins")
 vim.filetype.add({
    extension = {
       arb = "json",
+      drift = "sql",
    },
 })
