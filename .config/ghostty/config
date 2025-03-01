@@ -16,3 +16,6 @@ quit-after-last-window-closed = true
 shell-integration = zsh
 shell-integration-features = cursor, sudo, title
 
+keybind = ctrl+b>t=toggle_quick_terminal
+quick-terminal-position = bottom
+
